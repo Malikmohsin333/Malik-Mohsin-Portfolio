@@ -79,18 +79,37 @@ if (form) {
 }
 
 // Hamburger menu (mobile)
+// Hamburger menu for mobile
 const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const hireBtn = document.querySelector('.hire-btn');
+
 if (hamburger) {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
-        const navLinks = document.querySelector('.nav-links');
-        const hireBtn = document.querySelector('.hire-btn');
+        
+        // Toggle nav links
         if (navLinks.style.display === 'flex') {
             navLinks.style.display = 'none';
-            hireBtn.style.display = 'none';
+            if(hireBtn) hireBtn.style.display = 'none';
         } else {
             navLinks.style.display = 'flex';
-            hireBtn.style.display = 'block';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = '#000';
+            navLinks.style.padding = '20px';
+            navLinks.style.gap = '15px';
+            navLinks.style.borderBottom = '1px solid rgba(255,215,0,0.2)';
+            
+            if(hireBtn) {
+                hireBtn.style.display = 'block';
+                hireBtn.style.position = 'absolute';
+                hireBtn.style.top = '70px';
+                hireBtn.style.right = '20px';
+            }
         }
     });
 }
